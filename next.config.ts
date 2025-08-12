@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
   crossOrigin: "anonymous",
   output: "export",
   trailingSlash: true,
-  distDir: "out",
   images: {
     unoptimized: true,
   },

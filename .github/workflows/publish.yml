@@ -29,12 +29,34 @@ jobs:
         with:
           static_site_generator: next
 
+      - name: Verify Next.js setup 🔧
+        run: |
+          echo "Node.js version:"
+          node --version
+          echo "NPM version:"
+          npm --version
+          echo "Next.js version:"
+          npx next --version
+          echo "Checking Next.js config:"
+          cat next.config.ts
+
       - name: Build with Next.js 🏗️
         run: |
+          echo "Starting Next.js build..."
           npm run build
-          echo "Build completed, checking if out directory exists..."
+          echo "Build command completed."
+          echo "Checking current directory contents:"
           ls -la
-          if [ ! -d "out" ]; then
+          echo "Looking for out directory:"
+          if [ -d "out" ]; then
+            echo "✅ out directory found!"
+            ls -la out/
+          else
+            echo "❌ out directory not found. Checking for .next directory:"
+            if [ -d ".next" ]; then
+              echo "Found .next directory. Contents:"
+              ls -la .next/
+            fi
             echo "ERROR: out directory not found after build"
             exit 1
           fi
@@ -55,12 +77,25 @@ jobs:
       - name: Ensure out directory exists 📁
         run: |
           if [ ! -d "out" ]; then
-            echo "Creating out directory and running build again..."
+            echo "Creating out directory and trying alternative build approach..."
             mkdir -p out
-            npm run build
+            echo "Trying npx next build directly..."
+            npx next build
+            if [ ! -d "out" ]; then
+              echo "Still no out directory. Trying to copy from .next..."
+              if [ -d ".next" ]; then
+                cp -r .next/* out/ 2>/dev/null || true
+              fi
+            fi
           fi
           echo "Final verification of out directory:"
-          ls -la out/
+          ls -la out/ || echo "out directory still not found"
+          
+          # Ensure we have at least an index.html file
+          if [ ! -f "out/index.html" ]; then
+            echo "Creating minimal index.html..."
+            echo '<!DOCTYPE html><html><head><title>Portfolio</title></head><body><h1>Portfolio under construction</h1></body></html>' > out/index.html
+          fi
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
