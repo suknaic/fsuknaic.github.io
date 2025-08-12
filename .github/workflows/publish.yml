@@ -36,10 +36,14 @@ jobs:
         run: |
           echo "Current directory contents:"
           ls -la
+          echo "Checking for .next directory:"
+          ls -la .next/ || echo ".next directory not found"
           echo "Checking for out directory:"
           ls -la out/ || echo "out directory not found"
-          echo "Contents of out directory:"
+          echo "Contents of out directory (if exists):"
           find out/ -type f | head -10 || echo "No files found in out directory"
+          echo "All directories in project root:"
+          find . -maxdepth 2 -type d | sort
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
