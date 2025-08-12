@@ -20,11 +20,35 @@ A modern, performant portfolio website showcasing my skills, projects, and profe
 
 - **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS + CSS Modules
-- **Animation**: Framer Motion
-- **Form Handling**: React Hook Form + Resend
-- **Content**: MDX for blog posts
-- **State Management**: Zustand
+- **Animation**: Framer Motion / Motion
+- **Icons**: Lucide React
+- **UI Components**: Radix UI + Custom Components
+- **Theme**: Next Themes
 - **Type Safety**: TypeScript
-- **Testing**: Jest + React Testing Library
-- **Linting**: ESLint + Prettier
+- **Code Quality**: Biome (ESLint + Prettier alternative)
+- **Deployment**: GitHub Pages
 - **CI/CD**: GitHub Actions
+
+## Deployment 🚀
+
+This portfolio is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow:
+
+1. **Build**: Generates static files using `next build` with `output: export`
+2. **Deploy**: Uploads to GitHub Pages on every push to `master` branch
+3. **Live Site**: Available at [fsuknaic.github.io](https://fsuknaic.github.io)
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Build specifically for GitHub Pages
+npm run build:gh-pages
+```

@@ -15,11 +15,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Para GitHub Pages
-  basePath:
-    process.env.NODE_ENV === "production" ? "/portfolio-redesign-2025" : "",
-  assetPrefix:
-    process.env.NODE_ENV === "production" ? "/portfolio-redesign-2025/" : "",
+  // Para GitHub Pages - Como o repositório é fsuknaic.github.io, não precisamos de basePath
+  basePath: "",
+  assetPrefix: "",
 };
 
 export default nextConfig;

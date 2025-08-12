@@ -30,21 +30,21 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build
+        run: npm run build
 
       - name: Debug - Check directories 🔍
         run: |
           echo "Current directory contents:"
           ls -la
-          echo "Checking for .next directory:"
-          ls -la .next/ || echo ".next directory not found"
           echo "Checking for out directory:"
           ls -la out/ || echo "out directory not found"
+          echo "Contents of out directory:"
+          find out/ -type f | head -10 || echo "No files found in out directory"
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.next/standalone
+          path: ./out
 
   deploy:
     environment:
