@@ -9,16 +9,10 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
-  crossOrigin: "anonymous",
   output: "export",
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-
+  reactStrictMode: true,
   // Para GitHub Pages - Como o repositório é fsuknaic.github.io, não precisamos de basePath
-  basePath: "",
-  assetPrefix: "",
+  basePath: "./",
 };
 
 export default nextConfig;
