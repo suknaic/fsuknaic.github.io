@@ -32,8 +32,8 @@ export default function ProjectCard({
           microlinkUrl.searchParams.set("url", live);
           microlinkUrl.searchParams.set("screenshot", "true");
           microlinkUrl.searchParams.set("meta", "false");
-          microlinkUrl.searchParams.set("viewport.width", "1920");
-          microlinkUrl.searchParams.set("viewport.height", "1080");
+          microlinkUrl.searchParams.set("viewport.width", "500");
+          microlinkUrl.searchParams.set("viewport.height", "600");
           microlinkUrl.searchParams.set("viewport.deviceScaleFactor", "1");
           microlinkUrl.searchParams.set("waitFor", "2000");
 

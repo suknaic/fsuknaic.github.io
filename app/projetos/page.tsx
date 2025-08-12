@@ -34,16 +34,16 @@ export default function page() {
           <div>
             <ProjectCard
               link="/projetos/detalhes/rb-beauty"
-              live="https://rbeuaty.vercel.app"
+              live="http://beauty-appointment.vercel.app/"
               title="Agendamento de Beleza"
               description="Sistema de agendamento de beleza"
             />
           </div>
           <div>
             <ProjectCard
-              link="/projects/projectDetails/eVoting"
-              title="H&L E-Voting System"
-              description="Next gen bot for crypto-currencies."
+              link="/projetos/detalhes/agendamento-medicos"
+              title="Agendamentos Clínicos"
+              description="Sistema de agendamento de consultas médicas"
               imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
             />
           </div>
