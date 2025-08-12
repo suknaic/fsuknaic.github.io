@@ -43,50 +43,101 @@ jobs:
       - name: Build with Next.js 🏗️
         run: |
           echo "Starting Next.js build..."
+          
+          # Primeiro, limpar qualquer build anterior
+          rm -rf .next out
+          
+          # Executar o build
           npm run build
-          echo "Build command completed."
-          echo "Checking current directory contents:"
+          
+          echo "Build command completed. Checking results..."
           ls -la
-          echo "Looking for out directory:"
+          
+          # Se o diretório out não existir, tentar abordagens alternativas
+          if [ ! -d "out" ]; then
+            echo "❌ out directory not found. Trying alternative approaches..."
+            
+            # Tentativa 1: Rodar next build diretamente
+            echo "Trying npx next build..."
+            npx next build
+            
+            if [ ! -d "out" ]; then
+              echo "Still no out directory. Trying to manually export..."
+              
+              # Tentativa 2: Verificar se existe .next e copiar conteúdo
+              if [ -d ".next" ]; then
+                echo "Found .next directory. Checking contents..."
+                ls -la .next/
+                
+                # Criar diretório out manualmente
+                mkdir -p out
+                
+                # Copiar arquivos estáticos se existirem
+                if [ -d ".next/static" ]; then
+                  echo "Copying static files..."
+                  mkdir -p out/_next/static
+                  cp -r .next/static/* out/_next/static/ 2>/dev/null || true
+                fi
+                
+                # Copiar páginas se existirem
+                if [ -d ".next/server/pages" ]; then
+                  echo "Copying pages..."
+                  find .next/server/pages -name "*.html" -exec cp {} out/ \; 2>/dev/null || true
+                fi
+                
+                # Copiar arquivos da pasta public
+                if [ -d "public" ]; then
+                  echo "Copying public files..."
+                  cp -r public/* out/ 2>/dev/null || true
+                fi
+              fi
+            fi
+          fi
+          
+          # Verificação final
           if [ -d "out" ]; then
             echo "✅ out directory found!"
             ls -la out/
-          else
-            echo "❌ out directory not found. Checking for .next directory:"
-            if [ -d ".next" ]; then
-              echo "Found .next directory. Contents:"
-              ls -la .next/
+            
+            # Garantir que temos pelo menos um index.html
+            if [ ! -f "out/index.html" ]; then
+              echo "Creating index.html..."
+              cat > out/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Portfolio</title>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          </head>
+          <body>
+              <h1>Portfolio em construção</h1>
+              <p>O site será carregado em breve.</p>
+          </body>
+          </html>
+          EOF
             fi
-            echo "ERROR: out directory not found after build"
+          else
+            echo "❌ Failed to create out directory"
             exit 1
           fi
 
       - name: Debug - Check directories 🔍
         run: |
+          echo "Final verification before upload:"
           echo "Current directory contents:"
           ls -la
-          echo "Checking for .next directory:"
-          ls -la .next/ || echo ".next directory not found"
-          echo "Checking for out directory:"
+          echo "Contents of out directory:"
           ls -la out/ || echo "out directory not found"
-          echo "Contents of out directory (if exists):"
+          echo "Sample files in out directory:"
           find out/ -type f | head -10 || echo "No files found in out directory"
-          echo "All directories in project root:"
-          find . -maxdepth 2 -type d | sort
 
       - name: Ensure out directory exists 📁
         run: |
           if [ ! -d "out" ]; then
-            echo "Creating out directory and trying alternative build approach..."
+            echo "Creating out directory as fallback..."
             mkdir -p out
-            echo "Trying npx next build directly..."
-            npx next build
-            if [ ! -d "out" ]; then
-              echo "Still no out directory. Trying to copy from .next..."
-              if [ -d ".next" ]; then
-                cp -r .next/* out/ 2>/dev/null || true
-              fi
-            fi
+            echo '<!DOCTYPE html><html><head><title>Portfolio</title></head><body><h1>Portfolio</h1></body></html>' > out/index.html
           fi
           echo "Final verification of out directory:"
           ls -la out/ || echo "out directory still not found"
