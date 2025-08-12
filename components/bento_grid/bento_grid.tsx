@@ -92,7 +92,7 @@ export default function BentoGrid() {
                   alt="project image"
                 />
               </div>
-              <Link href="/projects">
+              <Link href="/projetos">
                 <div>
                   {/* <Image src={`/bg1.png`} width={100} height={100} alt="cover" /> */}
                   <h2 className="text-sm font-normal uppercase opacity-50">

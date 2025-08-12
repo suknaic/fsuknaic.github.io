@@ -43,8 +43,8 @@ export default function Page() {
               Desenvolvedor Full Stack & UI/UX Designer
             </p>
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
-              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
-                Janeiro {currentYear}
+              <span className="bg-purple-500 text-white text-sm font-medium px-2.5 py-0.5 rounded">
+                Março {currentYear}
               </span>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function Page() {
         {/* Hero Image */}
         <div className="relative aspect-video rounded-2xl overflow-hidden">
           <Image
-            src="/projects/fsk-barber.png"
+            src="/projects/bewearpreview.png"
             fill
             alt="Project preview"
             className="object-cover"
@@ -112,8 +112,8 @@ export default function Page() {
         <section className="space-y-6 bg-muted/50 p-8 rounded-xl border">
           <h2 className="text-3xl font-bold">Visão Geral do Projeto</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Bewear é uma loja virtual de roupas desenvolvida com as mais
-            modernas tecnologias web. O projeto combina uma interface elegante e
+            Bewear é uma loja virtual desenvolvida com as mais modernas
+            tecnologias web. O projeto combina uma interface elegante e
             responsiva com um backend robusto, oferecendo uma experiência de
             compra completa e intuitiva.
           </p>
@@ -128,15 +128,12 @@ export default function Page() {
               <h3 className="font-semibold mb-2">Desenvolvimento</h3>
               <div className="text-sm text-muted-foreground space-y-1">
                 <p>Desenvolvimento Solo</p>
-                <p>Design System Próprio</p>
                 <p>Metodologia Ágil</p>
               </div>
             </div>
             <div className="p-4 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">Deploy</h3>
-              <p className="text-sm text-muted-foreground">
-                Vercel + MongoDB Atlas
-              </p>
+              <p className="text-sm text-muted-foreground">Vercel</p>
             </div>
           </div>
         </section>
@@ -215,7 +212,7 @@ export default function Page() {
                   "TypeScript",
                   "Tailwind CSS",
                   "React Hook Form",
-                  "Zustand",
+                  "Tanstack Query",
                 ].map((tech) => (
                   <Badge
                     key={tech}
@@ -230,7 +227,7 @@ export default function Page() {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">Backend & Database</h3>
               <div className="flex flex-wrap gap-2">
-                {["Node.js", "MongoDB", "Prisma ORM", "NextAuth.js"].map(
+                {["Node.js", "Postgres", "Prisma ORM", "Better-Auth"].map(
                   (tech) => (
                     <Badge
                       key={tech}
@@ -246,17 +243,15 @@ export default function Page() {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold">Deploy & Tools</h3>
               <div className="flex flex-wrap gap-2">
-                {["Vercel", "MongoDB Atlas", "ESLint", "Prettier", "Git"].map(
-                  (tech) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className="px-3 py-1 text-sm font-medium hover:bg-primary/10"
-                    >
-                      {tech}
-                    </Badge>
-                  )
-                )}
+                {["Git", "Biome", "Vercel"].map((tech) => (
+                  <Badge
+                    key={tech}
+                    variant="outline"
+                    className="px-3 py-1 text-sm font-medium hover:bg-primary/10"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>

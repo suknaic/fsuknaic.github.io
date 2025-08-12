@@ -9,7 +9,7 @@ export default function page() {
       <div className="grid grid-flow-row gap-10 order-2 sm:order-1">
         <div>
           <ProjectCard
-            link="/projects/projectDetails/uniThrift"
+            link="/projetos/detalhes/bewear"
             live="https://bewear-three.vercel.app"
             title="Bewear"
             description="Bewear loja de roupas online"
