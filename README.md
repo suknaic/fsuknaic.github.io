@@ -18,7 +18,7 @@ A modern, performant portfolio website showcasing my skills, projects, and profe
 
 ## Technologies Used 🛠️
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS + CSS Modules
 - **Animation**: Framer Motion
 - **Form Handling**: React Hook Form + Resend
