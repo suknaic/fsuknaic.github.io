@@ -30,7 +30,14 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npm run build
+        run: |
+          npm run build
+          echo "Build completed, checking if out directory exists..."
+          ls -la
+          if [ ! -d "out" ]; then
+            echo "ERROR: out directory not found after build"
+            exit 1
+          fi
 
       - name: Debug - Check directories 🔍
         run: |
@@ -44,6 +51,16 @@ jobs:
           find out/ -type f | head -10 || echo "No files found in out directory"
           echo "All directories in project root:"
           find . -maxdepth 2 -type d | sort
+
+      - name: Ensure out directory exists 📁
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Creating out directory and running build again..."
+            mkdir -p out
+            npm run build
+          fi
+          echo "Final verification of out directory:"
+          ls -la out/
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3

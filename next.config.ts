@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+
   // Para GitHub Pages - Como o repositório é fsuknaic.github.io, não precisamos de basePath
   basePath: "",
   assetPrefix: "",
