@@ -1,7 +1,7 @@
 // components/CursorGradient.tsx
-'use client';
+"use client";
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from "react";
 
 interface CursorGradientProps {
   size?: string;
@@ -27,23 +27,23 @@ interface CursorGradientProps {
 }
 
 const CursorGradient: React.FC<CursorGradientProps> = ({
-  size = 'w-96 h-96',
+  size = "w-96 h-96",
   colors = {
     light: {
-      gradientStart: '#e5f4e3',
-      gradientEnd: 'transparent',
-      pattern: '#9dc183'
+      gradientStart: "#e5f4e3",
+      gradientEnd: "transparent",
+      pattern: "#9dc183",
     },
     dark: {
-      gradientStart: '#1a3a1e',
-      gradientEnd: 'transparent',
-      pattern: '#2d5b33'
-    }
+      gradientStart: "#1a3a1e",
+      gradientEnd: "transparent",
+      pattern: "#2d5b33",
+    },
   },
-  opacity = { light: 1, dark: 1},
+  opacity = { light: 1, dark: 1 },
   smoothing = 0.1,
-  patternSize = 'var(--static-space-2)',
-  className = ''
+  patternSize = "var(--static-space-2)",
+  className = "",
 }) => {
   const gradientRef = useRef<HTMLDivElement>(null);
   const patternRef = useRef<HTMLDivElement>(null);
@@ -53,7 +53,9 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
 
   // Theme detection
   const getCurrentTheme = () => {
-    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    return document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
   };
 
   // Update styles when theme changes
@@ -69,15 +71,14 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
         gradientRef.current.style.opacity = `${opacity[theme]}`;
       }
       if (patternRef.current) {
-        patternRef.current.style.backgroundImage = 
-          `radial-gradient(${colors[theme].pattern} 1px, transparent 1px)`;
+        patternRef.current.style.backgroundImage = `radial-gradient(${colors[theme].pattern} 1px, transparent 1px)`;
       }
     };
 
     const observer = new MutationObserver(updateThemeStyles);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class']
+      attributeFilter: ["class"],
     });
 
     updateThemeStyles();
@@ -92,7 +93,7 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
     const updateDimensions = () => {
       dimensions.current = {
         width: gradient.offsetWidth,
-        height: gradient.offsetHeight
+        height: gradient.offsetHeight,
       };
     };
 
@@ -118,14 +119,14 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
     // Initialize to center position
     targetPos.current = {
       x: window.innerWidth / 2,
-      y: window.innerHeight / 2
+      y: window.innerHeight / 2,
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     const animationFrame = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrame);
       resizeObserver.disconnect();
     };
@@ -137,19 +138,19 @@ const CursorGradient: React.FC<CursorGradientProps> = ({
         ref={gradientRef}
         className={`absolute pointer-events-none aspect-square rounded-full will-change-transform ${size}`}
         style={{
-          left: '0',
-          top: '0',
-          transition: 'opacity 300ms ease-out, background 300ms ease-out'
+          left: "0",
+          top: "0",
+          transition: "opacity 300ms ease-out, background 300ms ease-out",
         }}
       />
-      
+
       <div
         ref={patternRef}
         className="absolute inset-0 pointer-events-none"
         style={{
           opacity: 0.2,
           backgroundSize: `${patternSize} ${patternSize}`,
-          transition: 'background-image 300ms ease-out'
+          transition: "background-image 300ms ease-out",
         }}
       />
     </div>

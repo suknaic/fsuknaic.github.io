@@ -83,6 +83,7 @@ export default function ProjectCard({
             <span className="text-gray-500">Carregando screenshot...</span>
           </div>
         ) : displayImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={displayImage}
             alt="Project Screenshot"

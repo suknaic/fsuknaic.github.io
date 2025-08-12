@@ -74,7 +74,10 @@
       "linter": {
         "rules": {
           "style": {
-            "useSelfClosingElements": "error"
+            "useSelfClosingElements": "off"
+          },
+          "a11y": {
+            "noSvgWithoutTitle": "off"
           }
         }
       }

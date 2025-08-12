@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -54,20 +54,19 @@ const FloatIcons = () => {
     };
   }, []);
 
-  const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
-    const { gamma } = event;
-    const maxMovement = 120; // Adjust this value based on desired sensitivity
-
-    if (gamma !== null && gamma !== undefined) {
-      const moveX = (gamma / 90) * maxMovement * 2;
-      setPosition({
-        x: moveX,
-        y: position.y, // Maintain the y-position if gamma is null
-      });
-    }
-  };
-
   useEffect(() => {
+    const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
+      const { gamma } = event;
+      const maxMovement = 120; // Adjust this value based on desired sensitivity
+
+      if (gamma !== null && gamma !== undefined) {
+        const moveX = (gamma / 90) * maxMovement * 2;
+        setPosition({
+          x: moveX,
+          y: position.y, // Maintain the y-position if gamma is null
+        });
+      }
+    };
     if (typeof window !== "undefined") {
       window.addEventListener("deviceorientation", handleDeviceOrientation);
     }

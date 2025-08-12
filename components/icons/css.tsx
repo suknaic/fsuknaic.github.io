@@ -1,6 +1,7 @@
 import { IconProps } from "@/lib/types";
 import React from "react";
 const CssIcon: React.FC<IconProps> = ({ width, height }) => (
+  // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
   <svg width={width} height={height} viewBox="0 0 128 128">
     <path
       fill="#1572B6"

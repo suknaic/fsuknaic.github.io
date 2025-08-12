@@ -1,4 +1,3 @@
-import BootstrapIcon from "@/components/icons/bootstrap";
 import CssIcon from "@/components/icons/css";
 import HtmlIcon from "@/components/icons/html";
 import JavaScriptIcon from "@/components/icons/javascript";
@@ -10,19 +9,16 @@ import Nextjs from "@/components/icons/nextjs";
 import NodeJs from "@/components/icons/nodeJs";
 import PhpIcon from "@/components/icons/php";
 import PostgreSQLIcon from "@/components/icons/postgresql";
-import PythonIcon from "@/components/icons/python";
 import ReactIcon from "@/components/icons/react";
 import TailwindIcon from "@/components/icons/tailwindcss";
 import TypescriptIcon from "@/components/icons/typescript";
 import { WhatsappIcon } from "@/components/icons/whatsapp";
 import { BorderBeam } from "@/components/magicui/border-beam";
-// import { ScrollProgress } from "@/components/magicui/scroll-progress";
-// import { Badge } from "@/components/ui/badge";
+
 import { Button } from "@/components/ui/button";
-// import { ChevronRight, ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { DownloadIcon, EyeIcon, Instagram } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+
 const width = 40;
 const height = 40;
 
