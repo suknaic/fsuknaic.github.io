@@ -1,5 +1,5 @@
-import React from "react";
 import { IconProps } from "@/lib/types";
+import React from "react";
 
 const HtmlIcon: React.FC<IconProps> = ({ width, height }) => (
   <svg width={width} height={height} viewBox="0 0 128 128">

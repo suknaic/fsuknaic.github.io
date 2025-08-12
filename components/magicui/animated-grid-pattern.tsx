@@ -66,8 +66,8 @@ export function AnimatedGridPattern({
               ...sq,
               pos: getPos(),
             }
-          : sq,
-      ),
+          : sq
+      )
     );
   };
 
@@ -106,7 +106,7 @@ export function AnimatedGridPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-purple-400/30 stroke-purple-400/30 blur-sm",
-        className,
+        className
       )}
       {...props} // `repeatDelay` is not included here
     >

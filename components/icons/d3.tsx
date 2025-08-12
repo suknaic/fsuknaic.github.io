@@ -1,6 +1,6 @@
-import React from "react";
 import { IconProps } from "@/lib/types";
-const D3Icon: React.FC<IconProps> = ({ width, height}) => (
+import React from "react";
+const D3Icon: React.FC<IconProps> = ({ width, height }) => (
   <svg width={width} height={height} viewBox="0 0 128 128">
     <linearGradient
       id="d3js-original-a"

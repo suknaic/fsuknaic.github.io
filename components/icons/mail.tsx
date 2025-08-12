@@ -1,5 +1,5 @@
-import React from "react";
 import { IconProps } from "@/lib/types";
+import React from "react";
 
 const Mail: React.FC<IconProps> = ({ width, height }) => (
   <svg

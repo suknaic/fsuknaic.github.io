@@ -55,61 +55,69 @@ export default function Page() {
           />
         </div>
         <section className="">
-            <div className="flex-row sm:flex-col space-y-6">
+          <div className="flex-row sm:flex-col space-y-6">
             {/* Protótipo do Sistema */}
             <div className="space-y-6 bg-muted/50 p-8 rounded-xl border">
               <h2 className="text-3xl font-bold">Protótipo do Sistema</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-              Um sistema completo de agendamento para barbearias, permitindo que clientes marquem horários de forma rápida e fácil, com gestão eficiente de agendas, autenticação segura e painel administrativo para controle de serviços e horários disponíveis.
+                Um sistema completo de agendamento para barbearias, permitindo
+                que clientes marquem horários de forma rápida e fácil, com
+                gestão eficiente de agendas, autenticação segura e painel
+                administrativo para controle de serviços e horários disponíveis.
               </p>
               <div className="flex flex-wrap gap-4">
-              <Button asChild>
-                <a
-                href="https://online-flight-booking-system.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-                >
-                <ExternalLink className="w-4 h-4" />
-                Ver Demo
-                </a>
-              </Button>
+                <Button asChild>
+                  <a
+                    href="https://online-flight-booking-system.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Ver Demo
+                  </a>
+                </Button>
               </div>
             </div>
             {/* Repositório GitHub */}
             <div className="space-y-6 bg-muted/50 p-8 rounded-xl border">
               <h2 className="text-3xl font-bold">Repositório GitHub 🔒</h2>
-                <p className="text-lg leading-relaxed text-muted-foreground">
-                O código-fonte deste projeto é privado e não está disponível publicamente no GitHub.
-                </p>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                O código-fonte deste projeto é privado e não está disponível
+                publicamente no GitHub.
+              </p>
               <div className="flex flex-wrap gap-4">
-              <Button variant="outline" disabled={true}>
-                <a
-                href="https://github.com/SuryaLimbu/online-flight-booking-system"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-                >
-                <Github className="w-4 h-4" />
-                Ver no GitHub
-                </a>
-              </Button>
+                <Button variant="outline" disabled={true}>
+                  <a
+                    href="https://github.com/SuryaLimbu/online-flight-booking-system"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    Ver no GitHub
+                  </a>
+                </Button>
               </div>
             </div>
-            </div>
+          </div>
         </section>
 
         {/* Project Overview */}
         <section className="space-y-6 bg-muted/50 p-8 rounded-xl border">
           <h2 className="text-3xl font-bold">Visão Geral do Projeto</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Desenvolvido como um projeto pessoal para aprimorar habilidades em desenvolvimento fullstack, este sistema de agendamento para barbearias foi focado em usabilidade, performance e segurança, utilizando tecnologias modernas e boas práticas de engenharia de software.
+            Desenvolvido como um projeto pessoal para aprimorar habilidades em
+            desenvolvimento fullstack, este sistema de agendamento para
+            barbearias foi focado em usabilidade, performance e segurança,
+            utilizando tecnologias modernas e boas práticas de engenharia de
+            software.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="p-4 bg-background rounded-lg border">
               <h3 className="font-semibold mb-2">Metodologia</h3>
               <p className="text-sm text-muted-foreground">
-              Iterativo, com foco em TDD/BDD
+                Iterativo, com foco em TDD/BDD
               </p>
             </div>
             <div className="p-4 bg-background rounded-lg border">
@@ -125,44 +133,44 @@ export default function Page() {
 
         {/* Key Features */}
         <section className="space-y-6">
-            <h2 className="text-3xl font-bold">Principais Funcionalidades</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-3xl font-bold">Principais Funcionalidades</h2>
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-              title: "Listagem de Barbearias",
-              description:
-                "Navegue e descubra barbearias, visualize serviços disponíveis e confira informações de contato em uma interface amigável.",
-              icon: "🏢",
+                title: "Listagem de Barbearias",
+                description:
+                  "Navegue e descubra barbearias, visualize serviços disponíveis e confira informações de contato em uma interface amigável.",
+                icon: "🏢",
               },
               {
-              title: "Agendamento Online",
-              description:
-                "Agende horários para cortes e outros serviços facilmente, com disponibilidade em tempo real e confirmação instantânea.",
-              icon: "📅",
+                title: "Agendamento Online",
+                description:
+                  "Agende horários para cortes e outros serviços facilmente, com disponibilidade em tempo real e confirmação instantânea.",
+                icon: "📅",
               },
               {
-              title: "Gestão da Barbearia",
-              description:
-                "Barbearias podem gerenciar agendas, serviços e reservas através de um painel administrativo intuitivo.",
-              icon: "🛠️",
+                title: "Gestão da Barbearia",
+                description:
+                  "Barbearias podem gerenciar agendas, serviços e reservas através de um painel administrativo intuitivo.",
+                icon: "🛠️",
               },
               {
-              title: "Autenticação & Segurança",
-              description:
-                "Login e cadastro seguros utilizando NextAuth, garantindo privacidade e acesso protegido para todos os usuários.",
-              icon: "🔐",
+                title: "Autenticação & Segurança",
+                description:
+                  "Login e cadastro seguros utilizando NextAuth, garantindo privacidade e acesso protegido para todos os usuários.",
+                icon: "🔐",
               },
               {
-              title: "Notificações em Tempo Real",
-              description:
-                "Clientes e barbearias recebem notificações instantâneas sobre confirmações, cancelamentos e lembretes de agendamento.",
-              icon: "🔔",
+                title: "Notificações em Tempo Real",
+                description:
+                  "Clientes e barbearias recebem notificações instantâneas sobre confirmações, cancelamentos e lembretes de agendamento.",
+                icon: "🔔",
               },
               {
-              title: "UI Moderna & Código Modular",
-              description:
-                "Construído com Next.js, TypeScript e Tailwind CSS, com componentes reutilizáveis e estrutura organizada para escalabilidade.",
-              icon: "✨",
+                title: "UI Moderna & Código Modular",
+                description:
+                  "Construído com Next.js, TypeScript e Tailwind CSS, com componentes reutilizáveis e estrutura organizada para escalabilidade.",
+                icon: "✨",
               },
             ].map((feature, index) => (
               <div
@@ -221,10 +229,10 @@ export default function Page() {
 
         {/* Role & Responsibilities */}
         <section className="space-y-6">
-            <h2 className="text-3xl font-bold">Papel no Projeto</h2>
+          <h2 className="text-3xl font-bold">Papel no Projeto</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-muted/50 rounded-xl border">
-                <h3 className="text-xl font-semibold mb-4">Responsabilidades</h3>
+              <h3 className="text-xl font-semibold mb-4">Responsabilidades</h3>
               <ul className="space-y-3">
                 {[
                   "Desenvolvimento full-stack com Next.js e TypeScript",
@@ -244,7 +252,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="p-6 bg-muted/50 rounded-xl border">
-                <h3 className="text-xl font-semibold mb-4">Especialização</h3>
+              <h3 className="text-xl font-semibold mb-4">Especialização</h3>
               <ul className="space-y-3">
                 {[
                   "Integração de autenticação social (Google, GitHub)",
@@ -264,7 +272,7 @@ export default function Page() {
 
         {/* Outcomes & Learnings */}
         <section className="space-y-6">
-            <h2 className="text-3xl font-bold">Resultados & Aprendizados</h2>
+          <h2 className="text-3xl font-bold">Resultados & Aprendizados</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-green-50 rounded-xl border border-green-200">
               <h3 className="text-xl font-semibold mb-4 text-green-800">

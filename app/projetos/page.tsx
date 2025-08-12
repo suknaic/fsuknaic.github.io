@@ -10,10 +10,9 @@ export default function page() {
         <div>
           <ProjectCard
             link="/projects/projectDetails/uniThrift"
-            live="https://uni-thrift.vercel.app/"
+            live="https://bewear-three.vercel.app"
             title="Bewear"
             description="Bewear loja de roupas online"
-            imageUrl="https://necatikcl.dev/images/works/cryptosea.png"
           />
         </div>
         <div>
@@ -38,7 +37,6 @@ export default function page() {
               live="https://rbeuaty.vercel.app"
               title="Agendamento de Beleza"
               description="Sistema de agendamento de beleza"
-              imageUrl="/projects/fsk-barber.png"
             />
           </div>
           <div>
